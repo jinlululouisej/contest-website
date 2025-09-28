@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enjoy-AI Town Influencer Contest</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="bingbot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Google tag (gtag.js) - GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-61SMQR8KZS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-61SMQR8KZS'); /* 调试可临时加 { debug_mode: true } */
+  </script>
+
+  <style>
+    :root {
+      --pink-bg: #ffe4f0;
+      --blue-bg: #e3f2fd;
+      --card-bg: #ffffff;
+      --tiktok-blue: #25F4EE;
+      --tiktok-dark: #161823;
+      --tiktok-pink: #FE2C55;
+      --bow-pink: #FF82B2;
+      --shadow: 0 8px 32px rgba(62, 53, 71, 0.18);
+      --max-width: 1080px;
+      --accent-gradient: linear-gradient(90deg,#fe2c55 0%,#25F4EE 100%);
+      --section-bg: linear-gradient(90deg,#fff8fa 0%,#e3f2fd 100%);
+      --table-header-bg: linear-gradient(90deg,#ffe4f0 0%,#e3f2fd 100%);
+      --table-row-bg: #fff7fc;
+      --table-row-alt-bg: #f6f9fc;
+      --table-border: #ffd8b1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background: linear-gradient(120deg,var(--pink-bg) 0%,var(--blue-bg) 100%);
+      color:#fff;
+      font-family:'Segoe UI','Sans-Serif',Arial,Helvetica,sans-serif;
+      margin:0;
+      padding:0;
+      min-height:100vh;
+      background-attachment:fixed;
+      line-height:1.6;
+    }
+    .container {
+      max-width:var(--max-width);
+      margin:20px auto;
+      background:var(--card-bg);
+      color:var(--tiktok-dark);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:2em 1.5em;
+      font-size:1.1em;
+      width:calc(100% - 20px);
+      transition:box-shadow .3s;
+    }
+    .container:hover { box-shadow:0 16px 56px rgba(80,40,120,0.32); }
+    .title-row { display:flex; justify-content:center; align-items:center; margin-bottom:1.5em; flex-wrap:wrap; }
+    .main-title {
+      background:var(--accent-gradient);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      font-size:clamp(1.8em,5vw,3.3em);
+      font-weight:900;
+      letter-spacing:2px;
+      text-align:center;
+      margin:0 0 .1em;
+      line-height:1.2;
+    }
+    .bow { font-size:clamp(1.2em,3vw,2.2em); color:var(--bow-pink); margin:0 .07em; filter:drop-shadow(0 1px 5px #fe2c5522); }
+    .section-card {
+      background:var(--section-bg);
+      border-radius:15px;
+      box-shadow:0 2px 12px #e3f2fd30;
+      margin-bottom:1.5em;
+      padding:1.5em;
+      position:relative;
+      overflow:hidden;
+      font-size:1em;
+    }
+    .section-title {
+      color:var(--tiktok-pink);
+      font-size:clamp(1.1em,4vw,1.43em);
+      font-weight:800;
+      letter-spacing:1px;
+      margin:0 0 1em;
+      display:flex;
+      gap:.5em;
+      justify-content:center;
+      flex-wrap:wrap;
+      text-align:center;
+    }
+    .section-title .bow { font-size:1.2em; margin-right:.2em; }
+    .section-content { margin-bottom:.5em; line-height:1.7; font-size:1em; }
+    .section-content ul { padding-left:1.2em; margin:0; }
+    .section-content li { margin-bottom:.8em; }
+    .prize-list {
+      display:flex;
+      justify-content:center;
+      gap:clamp(.8em,3vw,2em);
+      margin:1.5em 0 2em;
+      padding:1.2em;
+      background:linear-gradient(135deg,#fff0f5 0%,#f0f8ff 100%);
+      border-radius:20px;
+      box-shadow:0 4px 20px rgba(254,44,85,.15);
+      border:3px solid #ffe4f0;
+      flex-wrap:wrap;
+    }
+    .prize-item {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:.5em;
+      font-size:clamp(.9em,2.5vw,1.2em);
+      background:#fff;
+      border-radius:15px;
+      box-shadow:0 4px 16px rgba(254,44,85,.2);
+      padding:clamp(.8em,2vw,1.2em);
+      border:2px solid transparent;
+      text-align:center;
+      min-width:clamp(120px,20vw,180px);
+      position:relative;
+      overflow:hidden;
+      transition:.3s;
+    }
+    .prize-item::before {
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,#fe2c55,#25F4EE);
+      border-radius:15px; padding:2px;
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask-composite:subtract;
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:destination-out;
+      z-index:1;
+    }
+    .prize-item:hover { transform:translateY(-5px) scale(1.05); box-shadow:0 8px 25px rgba(254,44,85,.3); }
+    .prize-medal { font-size:clamp(2em,5vw,3.5em); margin-bottom:.2em; filter:drop-shadow(0 2px 8px rgba(254,44,85,.3)); animation:bounce 2s infinite; z-index:2; }
+    @keyframes bounce {0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}60%{transform:translateY(-4px)}}
+    .prize-text { font-weight:900; text-align:center; z-index:2; }
+    .prize-amount { font-size:clamp(1.3em,3.5vw,2em); color:var(--tiktok-pink); font-weight:900; letter-spacing:1px; }
+    .prize-place { font-size:clamp(.8em,2vw,1em); font-weight:700; margin-top:.2em; }
+    .prize-item:first-child { background:linear-gradient(135deg,#fff9e6 0%,#fffbf0 100%); border-color:#ffd700; transform:scale(1.08); }
+    .prize-item:nth-child(2){ background:linear-gradient(135deg,#f8f8f8 0%,#ffffff 100%); border-color:#c0c0c0; }
+    .prize-item:nth-child(2) .prize-amount { color:#007acc; }
+    .prize-item:nth-child(3){ background:linear-gradient(135deg,#fff4e6 0%,#fff8f0 100%); border-color:#cd7f32; }
+    .prize-item:nth-child(3) .prize-amount { color:#cd7f32; }
+    .winner-list {
+      margin:2em auto 1em;
+      background:linear-gradient(90deg,#f9f9fc 0%,#e3f2fd 100%);
+      border-radius:13px;
+      border:2px solid #ffe4f0;
+      box-shadow:0 2px 12px #e3f2fd33;
+      padding:1.5em;
+      text-align:center;
+    }
+    .winner-title { font-weight:bold; margin-bottom:1em; font-size:clamp(1.1em,4vw,1.38em); letter-spacing:1px; color:var(--tiktok-pink); }
+    .winner-row {
+      display:flex; align-items:center; gap:1em; margin-bottom:1em;
+      flex-wrap:wrap; justify-content:flex-start;
+    }
+    .winner-medal { font-size:1.8em; }
+    .winner-label { min-width:120px; font-weight:bold; }
+    .winner-name {
+      flex:1; min-width:150px; font-style:italic; color:#000;
+      border-bottom:2px dashed #ddd; background:#f9f9fc;
+      border-radius:7px; padding:.4em .8em; text-align:left;
+      letter-spacing:.5px;
+    }
+    .winner-announcement-note {
+      margin-top:1.2em; color:#fe2c55; font-weight:650;
+      background:#fff7fc; border-radius:7px; padding:1em;
+      border:1.5px dashed #ffd8b1;
+    }
+    .timing-bar {
+      margin:1.5em auto 0;
+      background:linear-gradient(90deg,#ffe4f0 0%,#e3f2fd 100%);
+      border-radius:11px; border:2px solid #FFD8B1;
+      box-shadow:0 2px 10px #e3f2fd44;
+      padding:1.5em;
+      display:flex; flex-direction:column; gap:.8em;
+      font-weight:520; text-align:center;
+    }
+    .timing-main { font-size:clamp(1.1em,4vw,1.29em); font-weight:bold; color:var(--tiktok-pink); letter-spacing:1px; }
+    .timing-detail { font-weight:600; }
+    .timing-weekly { font-weight:600; font-size:.95em; line-height:1.6; }
+    .timing-bow { font-size:1.3em; color:var(--bow-pink); margin:0 .05em 0 .05em; }
+    .weekly-tables-title, .center-title {
+      font-size:clamp(1.1em,4vw,1.5em); font-weight:bold;
+      color:var(--tiktok-pink); letter-spacing:1px;
+      margin: .5em 0 1em;
+      text-align:center;
+      background:var(--section-bg);
+      border-radius:6px; padding:.8em 1em;
+      box-shadow:0 2px 12px #e3f2fd22;
+    }
+    .weekly-table-wrap { margin-bottom:2em; }
+    .weekly-table {
+      width:100%; border-collapse:separate; border-spacing:0;
+      background:#fff; margin-bottom:1.5em;
+      box-shadow:0 2px 16px #e3f2fd33;
+      border-radius:14px; overflow:hidden;
+      font-size:.9em; color:var(--tiktok-dark);
+      white-space:nowrap; display:block;
+    }
+    .weekly-table thead, .weekly-table tbody, .weekly-table tr {
+      display:table; width:100%; table-layout:fixed;
+    }
+    .weekly-table thead tr { background:var(--table-header-bg); }
+    .weekly-table th, .weekly-table td {
+      padding:.8em .5em; text-align:left;
+      border-bottom:1.5px solid var(--table-border);
+      word-wrap:break-word; overflow-wrap:break-word;
+    }
+    .weekly-table th {
+      font-size:.95em; font-weight:800; color:var(--tiktok-pink);
+      letter-spacing:.5px; border-top:2px solid var(--table-border);
+      background:var(--table-header-bg);
+    }
+    .weekly-table tbody tr { background:var(--table-row-bg); transition:background .2s; }
+    .weekly-table tbody tr:nth-child(even) { background:var(--table-row-alt-bg); }
+    .video-link { color:var(--tiktok-blue); text-decoration:underline; font-weight:bold; cursor:pointer; }
+    .video-link:hover { color:var(--tiktok-pink); }
+    .reference-title {
+      font-size:clamp(1.1em,4vw,1.43em); font-weight:800;
+      letter-spacing:1px; margin:1.5em 0 1em;
+      text-align:center; color:var(--tiktok-pink);
+    }
+    .reference-list { display:flex; flex-direction:column; gap:1em; align-items:center; }
+    .reference-link {
+      color:var(--tiktok-blue); text-decoration:none; font-weight:bold;
+      padding:.8em 1em; background:#f0f8ff; border-radius:8px;
+      border:1px solid #cce5ff; max-width:500px; width:100%;
+    }
+    .reference-link:hover { color:var(--tiktok-pink); background:#e6f2ff; }
+    .week-date { display:block; font-size:.85em; color:#666; margin-top:.3em; font-weight:600; }
+
+    /* Tabs (bigger, colored per month) */
+    .tabs { display:flex; justify-content:center; gap:.8em; margin:12px auto 16px; flex-wrap:wrap; }
+    .tab-btn {
+      appearance:none;
+      border:3px solid transparent;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.4px;
+      padding:.9em 1.6em;
+      font-size:clamp(.95em,2.2vw,1.15em);
+      min-width:150px;
+      cursor:pointer;
+      box-shadow:0 3px 10px #e3f2fd66;
+      transition:transform .18s, box-shadow .18s, background .18s;
+    }
+    .tab-btn:hover { transform:translateY(-2px); }
+
+    /* NEW: show only the active month panel */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Pink September button */
+    .tabs .tab-btn[data-target="panel-sep"] {
+      background:#FE2C55;
+      border-color:#FE2C55;
+      color:#fff;
+    }
+    .tabs .tab-btn[data-target="panel-sep"].active {
+      background:linear-gradient(90deg,#fe2c55 0%,#ff82b2 100%);
+      border-color:#ff82b2;
+      color:#fff;
+    }
+
+    /* Blue October button */
+    .tabs .tab-btn[data-target="panel-oct"] {
+      background:#25F4EE;
+      border-color:#25F4EE;
+      color:#0b3050;
+    }
+    .tabs .tab-btn[data-target="panel-oct"].active {
+      background:linear-gradient(90deg,#25F4EE 0%,#2bbcff 100%);
+      border-color:#2bbcff;
+      color:#0b3050;
+    }
+
+    /* Month subtitle under main title */
+    .month-subtitle { text-align:center; margin:-.2em 0 .8em; }
+    .month-text {
+      display:inline-block;
+      font-weight:900;
+      letter-spacing:1px;
+      font-size:clamp(1.05em,3vw,1.6em);
+      background-clip:text; -webkit-background-clip:text;
+      color:transparent;
+      transform-origin: center;
+      animation: qIdle 3.2s ease-in-out infinite;
+      will-change: transform;
+    }
+    .month-text.pop {
+      animation: qPop .8s cubic-bezier(.2,1.4,.3,1) 1;
+    }
+    /* Month gradient colors */
+    .month-text.sep {
+      background: linear-gradient(90deg,#fe2c55 0%,#ff82b2 100%);
+      -webkit-text-fill-color: transparent;
+    }
+    .month-text.oct {
+      background: linear-gradient(90deg,#25F4EE 0%,#2bbcff 100%);
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes qIdle {
+      0%, 100% { transform: scale(1); }
+      10% { transform: scale(1.07, .93); }
+      20% { transform: scale(.96, 1.04); }
+      30% { transform: scale(1.03, .97); }
+      40% { transform: scale(.99, 1.01); }
+      50% { transform: scale(1); }
+    }
+
+    /* Falling pink bubbles */
+    .bubble-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .bubble {
+      position: absolute;
+      top: -10vh;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%,
+        rgba(255,130,178,.95) 0%,
+        rgba(255,130,178,.65) 40%,
+        rgba(255,130,178,.28) 70%,
+        rgba(255,130,178,0) 100%);
+      box-shadow: 0 0 12px rgba(255,130,178,.55);
+      opacity: .9;
+      animation:
+        fall var(--dur,10s) linear var(--delay,0s) infinite,
+        sway var(--swayDur,4s) ease-in-out var(--delay,0s) infinite alternate;
+      will-change: transform, top, opacity;
+    }
+
+    /* Falling money bags */
+    .money-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 6; /* above bubbles */
+    }
+    .money {
+      position: absolute;
+      top: -10vh;
+      font-size: var(--fs, 22px);
+      line-height: 1;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.15));
+      animation:
+        fall var(--dur,10s) linear var(--delay,0s) infinite,
+        sway var(--swayDur,4s) ease-in-out var(--delay,0s) infinite alternate;
+      will-change: transform, top, opacity;
+    }
+
+    @keyframes fall {
+      0% { top: -10vh; opacity: 0; }
+      10% { opacity: .95; }
+      100% { top: 110vh; opacity: 0; }
+    }
+    @keyframes sway {
+      from { transform: translateX(var(--swayFrom, -16px)); }
+      to   { transform: translateX(var(--swayTo, 16px)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bubble-layer, .bubble, .money-layer, .money { display: none; animation: none; }
+    }
+
+    /* Bows on both sides for specified titles */
+    .section-title::after,
+    .reference-title::after,
+    .timing-main::after {
+      content: " 🎀";
+      color: var(--bow-pink);
+      filter: drop-shadow(0 1px 5px #fe2c5522);
+    }
+    .winner-title::before,
+    .winner-title::after {
+      content: "🎀";
+      color: var(--bow-pink);
+      margin: 0 .35em;
+      filter: drop-shadow(0 1px 5px #fe2c5522);
+    }
+
+    /* Responsive adjustments (kept from original) */
+    @media (max-width:768px){
+      .container{margin:10px;padding:1.5em 1em;}
+      .prize-list{flex-direction:column;}
+      .prize-item{width:100%;max-width:280px;}
+      .winner-row{flex-direction:column;align-items:flex-start;}
+      .weekly-table{font-size:.8em;}
+      .weekly-table th,.weekly-table td{padding:.6em .3em;}
+    }
+    @media (max-width:480px){
+      .container{margin:5px;padding:1em .7em;}
+      .weekly-table{font-size:.75em;}
+      .weekly-table th,.weekly-table td{padding:.5em .2em;font-size:.85em;}
+    }
+
+    /* Active Tab Button Jelly Effect */
+    .tabs .tab-btn.active {
+      animation: qBtnJelly 3.6s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes qBtnJelly {
+      0%, 100% { transform: translateY(0) scale(1); }
+      20% { transform: translateY(0) scale(1.03, .97); }
+      35% { transform: translateY(0) scale(.99, 1.02); }
+      50% { transform: translateY(0) scale(1.015, .985); }
+      65% { transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bubble-layer" id="bubble-layer" aria-hidden="true"></div>
+  <div class="money-layer" id="money-layer" aria-hidden="true"></div>
+
+  <!-- Tabs -->
+  <div class="tabs" role="tablist" aria-label="Contest Month Tabs">
+    <button class="tab-btn active" data-target="panel-sep" role="tab" aria-selected="true">September</button>
+    <button class="tab-btn" data-target="panel-oct" role="tab" aria-selected="false">October</button>
+  </div>
+
+  <!-- September Panel (add classes/id to existing container) -->
+  <div class="container tab-panel active" id="panel-sep">
+    <div class="title-row">
+      <span class="main-title">Enjoy-AI Town Influencer Contest</span>
+      <span class="main-title">September</span>
+    </div>
+    <!-- Prizes Section -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Prizes</div>
+      <div class="prize-list">
+        <div class="prize-item">
+          <span class="prize-medal">🥇</span>
+            <div class="prize-amount">$250</div>
+            <div class="prize-place">1st Place</div>
+        </div>
+        <div class="prize-item">
+          <span class="prize-medal">🥈</span>
+            <div class="prize-amount">$150</div>
+            <div class="prize-place">2nd Place</div>
+        </div>
+        <div class="prize-item">
+          <span class="prize-medal">🥉</span>
+            <div class="prize-amount">$50</div>
+            <div class="prize-place">3rd Place</div>
+        </div>
+      </div>
+
+      <div class="winner-list">
+        <div class="winner-title">Winner Announcement</div>
+        <div class="winner-row">
+          <span class="winner-medal">🥇</span>
+          <span class="winner-label">1st Place Winner:</span>
+          <span class="winner-name">asiapleaseeex2</span>
+        </div>
+        <div class="winner-row">
+          <span class="winner-medal">🥈</span>
+          <span class="winner-label">2nd Place Winner:</span>
+          <span class="winner-name">asiapleaseeex2</span>
+        </div>
+        <div class="winner-row">
+          <span class="winner-medal">🥉</span>
+          <span class="winner-label">3rd Place Winner:</span>
+          <span class="winner-name">asiapleaseeex2</span>
+        </div>
+        <div class="winner-announcement-note" style="color:#000;">
+          The final results for the September campaign have been determined. Let’s congratulate the top three winners, all of whom are asiapleaseeex2! She will receive the total additional bonus of $450 for September. You can click on her videos for reference. The October campaign officially starts on September 27th. Thank you all for your active participation!
+        </div>
+      </div>
+
+      <div class="timing-bar">
+        <span class="timing-main"><span class="timing-bow">🎀</span>Contest Period</span>
+        <span class="timing-detail">Video Submission: September 3 - September 27, 2025</span>
+        <span class="timing-detail">Winners: Top 3 videos with most views during this period</span>
+        <span class="timing-weekly">
+          Weekly Progress: Every Friday we'll announce the current top 5 videos to track progress - you can also get inspirations for your next viral video
+        </span>
+      </div>
+    </div>
+
+    <!-- Weekly Top 5 Tables -->
+    <div class="weekly-tables-title"><span class="bow">🎀</span>Weekly Top 5 Influencer Videos<span class="bow">🎀</span></div>
+    <div class="weekly-table-wrap">
+
+      <!-- Week 1 -->
+      <table class="weekly-table">
+        <caption>Week 1 <span class="week-date">(Sep 3 - Sep 12)</span></caption>
+        <thead>
+          <tr>
+            <th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>cashmommalaya</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@bigmommylaya/video/7547940911804714270" target="_blank">Click to view</a></td>
+            <td>33.9K</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>weluvvkii</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@itskiinotkey/video/7547875548098350367" target="_blank">Click to view</a></td>
+            <td>29K</td>
+          </tr>
+            <tr>
+            <td>3</td>
+            <td>tie_air_uh</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@tie_air_uh1/video/7546637690477792542?_r=1&_t=ZP-8ypAqG9dGAR" target="_blank">Click to view</a></td>
+            <td>27.4K</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>ZhaBackUp</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@zhabackup2/video/7546625892466953503" target="_blank">Click to view</a></td>
+            <td>19.9K</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>asiapleaseeex3</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7547948878830554423" target="_blank">Click to view</a></td>
+            <td>19.7K</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Week 2 -->
+      <table class="weekly-table">
+        <caption>Week 2 <span class="week-date">(Sep 13 - Sep 19)</span></caption>
+        <thead>
+          <tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550172833872235790" target="_blank">Click to view</a></td>
+            <td>10.7M</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7549047016601570615" target="_blank">Click to view</a></td>
+            <td>5M</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550171067025755447" target="_blank">Click to view</a></td>
+            <td>2.8M</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7549052224589155598" target="_blank">Click to view</a></td>
+            <td>2.6M</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550188820734561549" target="_blank">Click to view</a></td>
+            <td>1.9M</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Week 3 -->
+      <table class="weekly-table">
+        <caption>Week 3 <span class="week-date">(Sep 20 - Sep 26)</span></caption>
+        <thead>
+          <tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550171067025755447" target="_blank">Click to view</a></td>
+            <td>20.5M</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550172833872235790" target="_blank">Click to view</a></td>
+            <td>14.4M</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7549047016601570615" target="_blank">Click to view</a></td>
+            <td>12.8M</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7550535791768849678" target="_blank">Click to view</a></td>
+            <td>6.68M</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>asiapleaseeex2</td>
+            <td><a class="video-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7551640717701975309" target="_blank">Click to view</a></td>
+            <td>6.65M</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- Eligibility -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Eligibility</div>
+      <div class="section-content">
+        <ul>
+          <li>The contest is open to influencers currently in a long-term collaboration with Enjoy-AI Town.</li>
+          <li>Participants must create videos per instructions and submit within the timeframe.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Video Guidelines -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Video Content Guidelines</div>
+      <div class="section-content">
+        <ul>
+          <li>Videos must feature Enjoy-AI Town in a creative, fun, engaging way.</li>
+          <li>Recommended length about 7 seconds and follow provided format spec.</li>
+        </ul>
+      </div>
+
+      <!-- Reference Videos -->
+      <div class="reference-videos">
+        <div class="reference-title"><span class="bow">🎀</span> Previous viral videos for reference</div>
+        <div class="reference-list">
+          <a class="reference-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7515256150988786987" target="_blank">Previous Viral Video 1 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7527871387625688375" target="_blank">Previous Viral Video 2 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@k3yapsallday/video/7531215256132095246" target="_blank">Previous Viral Video 3 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@madison..ludwig2/video/7507015575131131182" target="_blank">Previous Viral Video 4 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@teachplaycoloring/video/7492064245719371039?_r=1&_t=ZT-8zA2bqwrzdP" target="_blank">Previous Viral Video 5 (Click to view)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scoring -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Scoring Criteria</div>
+      <div class="section-content">
+        <ul>
+          <li><b>View Count:</b> Only the number of views the video receives is considered.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="center-title"><span class="bow">🎀</span> Good luck and have fun! <span class="bow">🎀</span></div>
+  </div>
+
+  <!-- October Panel (new) -->
+  <div class="container tab-panel" id="panel-oct">
+    <div class="title-row">
+      <span class="main-title">Enjoy-AI Town Influencer Contest</span>
+      <span class="main-title">October</span>
+    </div>
+    <!-- Prizes (same as September) -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Prizes</div>
+      <div class="prize-list">
+        <div class="prize-item"><span class="prize-medal">🥇</span><div class="prize-amount">$250</div><div class="prize-place">1st Place</div></div>
+        <div class="prize-item"><span class="prize-medal">🥈</span><div class="prize-amount">$150</div><div class="prize-place">2nd Place</div></div>
+        <div class="prize-item"><span class="prize-medal">🥉</span><div class="prize-amount">$50</div><div class="prize-place">3rd Place</div></div>
+      </div>
+
+      <div class="winner-list">
+        <div class="winner-title">Winner Announcement</div>
+        <div class="winner-row">
+          <span class="winner-medal">🥇</span>
+          <span class="winner-label">1st Place Winner:</span>
+          <span class="winner-name">to be announced</span>
+        </div>
+        <div class="winner-row">
+          <span class="winner-medal">🥈</span>
+          <span class="winner-label">2nd Place Winner:</span>
+          <span class="winner-name">to be announced</span>
+        </div>
+        <div class="winner-row">
+          <span class="winner-medal">🥉</span>
+          <span class="winner-label">3rd Place Winner:</span>
+          <span class="winner-name">to be announced</span>
+        </div>
+        <div class="winner-announcement-note" style="color:#000;">
+          To keep things fair and give later submissions time to gather data, we'll announce the winners on November 11.
+        </div>
+      </div>
+
+      <!-- Timing -->
+      <div class="timing-bar">
+        <span class="timing-main"><span class="timing-bow">🎀</span>Contest Period</span>
+        <span class="timing-detail">Video Submission: September 27 - October 27, 2025</span>
+        <span class="timing-detail">Winners: Top 3 videos with most views during this period</span>
+        <span class="timing-weekly">
+          Weekly Progress: Every Friday we'll announce the current top 5 videos to track progress - you can also get inspirations for your next viral video
+        </span>
+      </div>
+    </div>
+
+    <!-- Weekly Top 5 (October) -->
+    <div class="weekly-tables-title"><span class="bow">🎀</span>Weekly Top 5 Influencer Videos<span class="bow">🎀</span></div>
+    <div class="weekly-table-wrap">
+      <table class="weekly-table">
+        <caption>Week 1 <span class="week-date">(Sep 27 - Oct 9)</span></caption>
+        <thead><tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>2</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>3</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>4</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>5</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+        </tbody>
+      </table>
+      <table class="weekly-table">
+        <caption>Week 2 <span class="week-date">(Oct 10 - Oct 17)</span></caption>
+        <thead><tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>2</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>3</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>4</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>5</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+        </tbody>
+      </table>
+      <table class="weekly-table">
+        <caption>Week 3 <span class="week-date">(Oct 11 - Oct 17)</span></caption>
+        <thead><tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>2</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>3</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>4</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>5</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+        </tbody>
+      </table>
+      <table class="weekly-table">
+        <caption>Week 4 <span class="week-date">(Oct 18 - Oct 27)</span></caption>
+        <thead><tr><th>Rank</th><th>Influencer Name</th><th>Video Link</th><th>Views</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>2</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>3</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>4</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+          <tr><td>5</td><td>to be announced</td><td><a class="video-link" href="#" onclick="return false;">to be announced</a></td><td>to be announced</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Eligibility / Guidelines / Reference / Scoring (same as September) -->
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Eligibility</div>
+      <div class="section-content">
+        <ul>
+          <li>The contest is open to influencers currently in a long-term collaboration with Enjoy-AI Town.</li>
+          <li>Participants must create videos per instructions and submit within the timeframe.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Video Content Guidelines</div>
+      <div class="section-content">
+        <ul>
+          <li>Videos must feature Enjoy-AI Town in a creative, fun, engaging way.</li>
+          <li>Recommended length about 7 seconds and follow provided format spec.</li>
+        </ul>
+      </div>
+
+      <div class="reference-videos">
+        <div class="reference-title"><span class="bow">🎀</span> Previous viral videos for reference</div>
+        <div class="reference-list">
+          <a class="reference-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7515256150988786987" target="_blank">Previous Viral Video 1 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@asiapleaseee2x/video/7527871387625688375" target="_blank">Previous Viral Video 2 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@k3yapsallday/video/7531215256132095246" target="_blank">Previous Viral Video 3 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@madison..ludwig2/video/7507015575131131182" target="_blank">Previous Viral Video 4 (Click to view)</a>
+          <a class="reference-link" href="https://www.tiktok.com/@teachplaycoloring/video/7492064245719371039?_r=1&_t=ZT-8zA2bqwrzdP" target="_blank">Previous Viral Video 5 (Click to view)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title"><span class="bow">🎀</span> Scoring Criteria</div>
+      <div class="section-content">
+        <ul><li><b>View Count:</b> Only the number of views the video receives is considered.</li></ul>
+      </div>
+    </div>
+
+    <div class="center-title"><span class="bow">🎀</span> Good luck and have fun! <span class="bow">🎀</span></div>
+  </div>
+
+  <script>
+    (function () {
+      const bubbleLayer = document.getElementById('bubble-layer');
+      const moneyLayer = document.getElementById('money-layer');
+      if (!bubbleLayer || !moneyLayer) return;
+
+      function spawnBubbles(count) {
+        for (let i = 0; i < count; i++) {
+          const b = document.createElement('span');
+          b.className = 'bubble';
+          const size = Math.random() * 18 + 10;           // 10-28px
+          const left = Math.random() * 100;               // 0-100vw
+          const delay = Math.random() * 8;                // 0-8s
+          const dur = Math.random() * 8 + 8;              // 8-16s
+          const swayDur = Math.random() * 3 + 3;          // 3-6s
+          const swayAmp = Math.random() * 24 + 10;        // 10-34px
+          const dir = Math.random() < 0.5 ? -1 : 1;
+
+          b.style.width = size + 'px';
+          b.style.height = size + 'px';
+          b.style.left = left + 'vw';
+          b.style.setProperty('--delay', delay + 's');
+          b.style.setProperty('--dur', dur + 's');
+          b.style.setProperty('--swayDur', swayDur + 's');
+          b.style.setProperty('--swayFrom', (dir * -swayAmp) + 'px');
+          b.style.setProperty('--swayTo', (dir * swayAmp) + 'px');
+
+          bubbleLayer.appendChild(b);
+        }
+      }
+
+      function spawnMoney(count) {
+        for (let i = 0; i < count; i++) {
+          const m = document.createElement('span');
+          m.className = 'money';
+          m.textContent = '💰';
+          const fs = Math.random() * 14 + 18;             // 18-32px
+          const left = Math.random() * 100;               // 0-100vw
+          const delay = Math.random() * 8;                // 0-8s
+          const dur = Math.random() * 8 + 8;              // 8-16s
+          const swayDur = Math.random() * 3 + 3;          // 3-6s
+          const swayAmp = Math.random() * 26 + 12;        // 12-38px
+          const dir = Math.random() < 0.5 ? -1 : 1;
+
+          m.style.left = left + 'vw';
+          m.style.setProperty('--fs', fs + 'px');
+          m.style.setProperty('--delay', delay + 's');
+          m.style.setProperty('--dur', dur + 's');
+          m.style.setProperty('--swayDur', swayDur + 's');
+          m.style.setProperty('--swayFrom', (dir * -swayAmp) + 'px');
+          m.style.setProperty('--swayTo', (dir * swayAmp) + 'px');
+
+          moneyLayer.appendChild(m);
+        }
+      }
+
+      function reset() {
+        while (bubbleLayer.firstChild) bubbleLayer.removeChild(bubbleLayer.firstChild);
+        while (moneyLayer.firstChild) moneyLayer.removeChild(moneyLayer.firstChild);
+
+        const base = Math.floor(window.innerWidth / 40); // density by width
+        const bubbleCount = Math.min(28, Math.max(16, base));
+        const moneyCount = Math.min(16, Math.max(8, Math.floor(window.innerWidth / 70)));
+
+        spawnBubbles(bubbleCount);
+        spawnMoney(moneyCount);
+      }
+
+      reset();
+
+      let timer;
+      window.addEventListener('resize', () => {
+        clearTimeout(timer);
+        timer = setTimeout(reset, 200);
+      }, { passive: true });
+    })();
+
+    // Tabs init
+    (function () {
+      const buttons = Array.from(document.querySelectorAll('.tab-btn'));
+      const panels = new Map(
+        Array.from(document.querySelectorAll('.tab-panel')).map(p => [p.id, p])
+      );
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-target');
+          if (!id || !panels.has(id)) return;
+
+          // Update buttons
+          buttons.forEach(b => {
+            const active = b === btn;
+            b.classList.toggle('active', active);
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+
+          // Update panels
+          panels.forEach((panel, pid) => {
+            panel.classList.toggle('active', pid === id);
+          });
+        }, { passive: true });
+      });
+    })();
+  </script>
+</body>
+</html>
