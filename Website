@@ -1,0 +1,33 @@
+# contest-website
+
+这是 Enjoy-AI Town Influencer Contest 的静态网站仓库，内置 GA4 代码（测量 ID：`G-61SMQR8KZS`）。
+
+## 启用 GitHub Pages
+
+1. 打开仓库 → Settings → Pages  
+2. Build and deployment
+   - Source: Deploy from a branch
+   - Branch: `main`，Folder: `/ (root)`
+3. 保存，等待 1–2 分钟。你的临时网址将是：
+   - `https://jinlululouisej.github.io/contest-website/`
+
+## 绑定自定义域名
+
+1. 在本仓库根目录已放置 `CNAME` 文件：`contest.enjoy.ai`  
+2. 去你的域名 DNS 服务商添加一条 CNAME 记录：
+   - 名称/主机（Host）：`contest`
+   - 记录值（Value）：`jinlululouisej.github.io`
+   - 若使用 Cloudflare，请将小云朵切为“仅 DNS（灰色）”
+3. 等待生效（几分钟到 30 分钟）。回到 Settings → Pages：
+   - Custom domain 填入：`contest.enjoy.ai`
+   - 勾选 Enforce HTTPS（证书下发后可勾选）
+
+生效后，`https://contest.enjoy.ai` 即可访问本站。
+
+## 验证 GA4 是否正常采集
+
+- 打开页面 → 浏览器开发者工具 → Network，刷新页面
+  - 搜索 `gtag/js?id=G-61SMQR8KZS`（应返回 200）
+  - 搜索 `g/collect`（应看到上报请求；参数里含 `tid=G-61SMQR8KZS`）
+- 在 GA4 后台“报告 → 实时”应看到 1 个活跃用户（你自己）
+- 若看不到数据，请用无痕窗口，并关闭广告拦截插件
